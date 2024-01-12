@@ -1,7 +1,39 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
+import Layout from './components/Layout';
+import BrandCom from './pages/BrandCom';
+import WritePost from './pages/WritePost';
+import ShopCom from './pages/ShopCom';
+import FreeCom from './pages/FreeCom';
+
+
+function App() {
+  return (
+    <BrowserRouter>
+    <Layout>
+      <BrandCom/>
+      <Routes>
+      <Route index element = {<BrandCom />} />
+        <Route path = "post-write" element={<WritePost />} />
+        <Route path = "/BrandCommunity" element={<BrandCom />} />
+        <Route path = "/ShopCommunity" element={<ShopCom />} />
+        <Route path = "/FreeCommunity" element={<FreeCom />} />
+      </Routes>
+      
+    </Layout>
+    
+    </BrowserRouter>
+    
+  );
+}
+/*
 function App() {
   return (
     <div className="App">
@@ -22,5 +54,5 @@ function App() {
     </div>
   );
 }
-
+*/
 export default App;
