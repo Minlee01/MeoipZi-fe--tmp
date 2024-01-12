@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import mainLogo from "../images/mainLogo.png";
 
 const StyleHeader = styled.div`
     position: fixed;
@@ -11,13 +12,24 @@ const StyleHeader = styled.div`
     left: 50%;
     transform: translateX(-50%);
 
-    background: #ECECEC;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+
+    background-color: white;
+`;
+
+const LogoImage = styled.img`
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
 `;
 
 function Header(): JSX.Element {
     return(
         <StyleHeader id = "header">
-            <h2>header</h2>
+            <img src={mainLogo} alt="MeoipZi" />
         </StyleHeader>
     );
 }

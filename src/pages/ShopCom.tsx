@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PostList from "../components/list/PostList";
 import Button from "../components/ui/Button";
-import data from '../data.json';
+import data_S from '../data_Shop.json';
 
 interface MainPageProps {}
 
@@ -36,7 +36,7 @@ const ShopCom: FC<MainPageProps> = () => {
     <Wrapper>
       <Container>
         <PostList
-          posts={data}
+          posts={data_S}
           onClickItem={(item) => {
             navigate(`/post/${item.id}`);
           }}

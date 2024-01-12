@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Button from "./ui/Button";
 
 const StyleTab = styled.div`
     position: fixed;
@@ -36,7 +37,7 @@ const StyledButton = styled.button`
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    background-color: transparent;
+    background-color:transparent;
     cursor: pointer;
 
 `;
@@ -53,18 +54,18 @@ function CommunityTab(): JSX.Element {
     const navigate = useNavigate();
     return(
         <StyleTab id = "tab">
-            <Styleul><StyledButton
-                title="브랜드/업체"
+            <Styleul><Button
+                title = "브랜드/업체"
                 onClick ={() =>{
                     navigate("/BrandCommunity");
                 }}/>
-                <StyledButton
-                title="쇼핑&패션"
+                <Button
+                title = "쇼핑&패션"
                 onClick ={() =>{
                     navigate("/ShopCommunity");
                 }}/>
-                <StyledButton
-                title="자유게시판"
+                <Button
+                title = "자유게시판"
                 onClick ={() =>{
                     navigate("/FreeCommunity");
                 }}/></Styleul>

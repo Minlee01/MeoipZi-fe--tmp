@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
+import CommunityTab from "./CommunityTab";
 //import CommunityTab from "./CommunityTab";
 
 interface LayoutProps {
@@ -36,7 +37,7 @@ function Layout(props: LayoutProps): JSX.Element {
     return (
       <div>
         <Header />
-        
+        <CommunityTab/>
         <StyleWrap id="wrap">
          
           <ContentWrapper>

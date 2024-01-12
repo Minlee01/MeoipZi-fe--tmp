@@ -5,7 +5,7 @@ const StyleFooter = styled.div`
     position: fixed;
     bottom: 0;
     width: 375px;
-    height: 86px;
+    height: 56px;
     flex-shrink: 0;
     z-index: 100;
     left: 50%;
