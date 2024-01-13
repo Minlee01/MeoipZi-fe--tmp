@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 100000001,
         "title": "shoptest1",
         "content": "안녕하세요",
         "heartCnt":3,
@@ -9,7 +9,7 @@
         
     },
     {
-        "id": 2,
+        "id": 100000002,
         "title": "브랜드 xxx입니다",
         "content": "안녕하세요, 테스트2",
         "heartCnt":1,
@@ -17,7 +17,7 @@
         "postDate":"2024-01-10"
     },
     {
-        "id": 3,
+        "id": 100000003,
         "title": "테스트 제목 3 옷가게",
         "content": "test content3-id3",
         "heartCnt":2,

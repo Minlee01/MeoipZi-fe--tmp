@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;  // Fixed typo in 'align-items'
   justify-content: center;
-  margin-top: 128px;
+  
   margin-bottom: 56px;
 `;
 
