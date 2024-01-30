@@ -10,8 +10,9 @@ interface LayoutProps {
 }
 
 const StyleWrap = styled.div`
-  margin-top: 126px;
-  position: absolute;
+  margin-top: 95vh;
+  margin-bottom: 1vh;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -19,9 +20,9 @@ const StyleWrap = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 375px;
+  width: 56vh;
   justify-content: space-between;
-  min-height: 100vh;
+  min-height: 100%;
   overflow: hidden;
 
   background-color: white;

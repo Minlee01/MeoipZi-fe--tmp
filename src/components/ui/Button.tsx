@@ -19,6 +19,7 @@ const StyledButton = styled.button`
     line-height: normal;
     background-color:transparent;
     cursor: pointer;
+    z-index: 100;
 
     margin-left: 15px; /*margin between buttons*/
 `;

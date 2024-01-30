@@ -21,7 +21,7 @@ function App() {
       <BrandCom/>
       <Routes>
       <Route index element = {<BrandCom />} />
-        <Route path = "post-write" element={<WritePost />} />
+        <Route path = "/post-write" element={<WritePost />} />
         <Route path = "/BrandCommunity" element={<BrandCom />} />
         <Route path = "/ShopCommunity" element={<ShopCom />} />
         <Route path = "/FreeCommunity" element={<FreeCom />} />

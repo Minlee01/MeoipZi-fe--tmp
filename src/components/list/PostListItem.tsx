@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 const TitleText = styled.p`
 overflow: hidden;
 color: #464646;
-margin: 8px 18px 8px;
+margin: 1vh 1vh 1vh;
 
 text-overflow: ellipsis;
 font-family: Noto Sans Arabic;
@@ -52,7 +52,7 @@ font-size: 12px;
 font-style: normal;
 font-weight: 400;
 line-height: 100%; /* 12px */
-margin: 0px 16px 8px;
+margin: 0px 1vh 1vh;
 `;
 
 function PostListItem(props: PostListItemProps) {

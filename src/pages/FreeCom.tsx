@@ -7,15 +7,15 @@ import data_F from '../data_Free.json';
 
 interface MainPageProps {}
 
-const Wrapper = styled.div`
+const FWrapper = styled.div`
   padding: 16px;
-  width: 340px;
+  width: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;  // Fixed typo in 'align-items'
   justify-content: center;
   
-  margin-bottom: 56px;
+  margin-bottom: 8vh;
 `;
 
 const Container = styled.div`
@@ -33,7 +33,7 @@ const FreeCom: FC<MainPageProps> = () => {
   const navigate = useNavigate();
 
   return (
-    <Wrapper>
+    <FWrapper>
       <Container>
         <PostList
           posts={data_F}
@@ -42,7 +42,7 @@ const FreeCom: FC<MainPageProps> = () => {
           }}
         />
       </Container>
-    </Wrapper>
+    </FWrapper>
   );
 };
 

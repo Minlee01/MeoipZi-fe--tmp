@@ -3,24 +3,24 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import PostList from "../components/list/PostList";
 import Button from "../components/ui/Button";
-import data_B from '../data_Brand.json';
+import data_Brand from '../data_Brand.json';
 
 interface MainPageProps {}
 
-const Wrapper = styled.div`
+const BWrapper = styled.div`
   padding: 16px;
-  width: 340px;
+  width: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;  // Fixed typo in 'align-items'
   justify-content: center;
   
-  margin-bottom: 56px;
+  margin-bottom: 3vh;
 `;
 
 const Container = styled.div`
   width: 100%;
-  max-width: 355px;
+  max-width: 53vh;
 
   & > * {
     :not(:last-child) {
@@ -29,20 +29,38 @@ const Container = styled.div`
   }
 `;
 
+const ButtonContainer = styled.div`
+  position: fixed;
+  margin-left: 250px;
+  z-index: 100;
+`;
+
 const BrandCom: FC<MainPageProps> = () => {
   const navigate = useNavigate();
 
+  console.log("Data in BrandCom:", data_Brand);
+
   return (
-    <Wrapper>
+    <>
+    <BWrapper>
       <Container>
         <PostList
-          posts={data_B}
+          posts={data_Brand}
           onClickItem={(item) => {
             navigate(`/post/${item.id}`);
           }}
         />
-      </Container>
-    </Wrapper>
+        </Container>
+    </BWrapper> 
+        <ButtonContainer>
+        <Button
+          title="write"
+          onClick={() => {
+            navigate("/post-write"); // Update the destination route
+          }}
+        />
+        </ButtonContainer>
+      </>
   );
 };
 
