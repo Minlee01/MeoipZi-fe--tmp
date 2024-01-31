@@ -13,11 +13,35 @@ import WritePost from './pages/WritePost';
 import ShopCom from './pages/ShopCom';
 import FreeCom from './pages/FreeCom';
 
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
     <BrowserRouter>
     <Layout>
+      
+      <MainPage/>
+      <Routes>
+      <Route index element = {<BrandCom />} />
+        <Route path = "/post-write" element={<WritePost />} />
+        <Route path = "/BrandCommunity" element={<BrandCom />} />
+        <Route path = "/ShopCommunity" element={<ShopCom />} />
+        <Route path = "/FreeCommunity" element={<FreeCom />} />
+      </Routes>
+      
+    </Layout>
+    
+    </BrowserRouter>
+    
+  );
+}
+
+/*
+function App() {
+  return (
+    <BrowserRouter>
+    <Layout>
+      
       <BrandCom/>
       <Routes>
       <Route index element = {<BrandCom />} />
@@ -33,6 +57,7 @@ function App() {
     
   );
 }
+*/
 /*
 function App() {
   return (

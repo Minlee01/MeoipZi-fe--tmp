@@ -2,6 +2,8 @@ import React, { ReactNode } from "react";
 import styled from "styled-components";
 import Footer from "./Footer";
 import Header from "./Header";
+
+import MainHeader from "../components/mainpageUI/MainHeader";
 import CommunityTab from "./CommunityTab";
 //import CommunityTab from "./CommunityTab";
 
@@ -37,7 +39,7 @@ const ContentWrapper = styled.div`
 function Layout(props: LayoutProps): JSX.Element {
     return (
       <div>
-        <Header />
+        <MainHeader />
         <CommunityTab/>
         <StyleWrap id="wrap">
          
