@@ -58,7 +58,7 @@ function WritePost() {
         <Button
           title="글 작성하기"
           onClick={() => {
-            navigate("/");
+            navigate("/brand-com");
           }}
         />
       </Container>
