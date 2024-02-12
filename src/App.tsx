@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import Layout from './components/Layout';
+import MainLayout from '../src/components/mainpageUI/MainLayout'
 import BrandCom from './pages/BrandCom';
 import WritePost from './pages/WritePost';
 import ShopCom from './pages/ShopCom';
@@ -18,9 +19,10 @@ import MainPage from './pages/MainPage';
 function App() {
   return (
     <BrowserRouter>
-    <Layout>
+    <MainLayout>
       
       <MainPage/>
+      {/*
       <Routes>
       <Route index element = {<BrandCom />} />
         <Route path = "/post-write" element={<WritePost />} />
@@ -28,8 +30,8 @@ function App() {
         <Route path = "/ShopCommunity" element={<ShopCom />} />
         <Route path = "/FreeCommunity" element={<FreeCom />} />
       </Routes>
-      
-    </Layout>
+  */}
+    </MainLayout>
     
     </BrowserRouter>
     

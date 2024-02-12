@@ -7,7 +7,7 @@ import alarmLogo from "../../images/alarm.png";
 const StyleHeader = styled.div`
     position: fixed;
     top:0;
-    width: 375px;
+    width: 400px;
     height: 86px;
     flex-shrink: 0;
     z-index: 100;
@@ -20,6 +20,7 @@ const StyleHeader = styled.div`
 
     background-color: white;
 `;
+
 
 const LogoImage = styled.img`
     display: block;

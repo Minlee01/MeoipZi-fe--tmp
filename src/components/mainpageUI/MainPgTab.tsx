@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "./ui/Button";
+
 
 const StyleTab = styled.div`
     position: fixed;
-    width: 380px;
+    width: 385px;
     height: 42px;
     flex-shrink: 0;
     background: white;
@@ -50,28 +50,16 @@ const BottomRectangle = styled.div`
 `;
 
 
-function CommunityTab(): JSX.Element {
+function MainPgTab(): JSX.Element {
     const navigate = useNavigate();
     return(
         <StyleTab id = "tab">
-            <Styleul><Button
-                title = "브랜드/업체"
-                onClick ={() =>{
-                    navigate("/BrandCommunity");
-                }}/>
-                <Button
-                title = "쇼핑&패션"
-                onClick ={() =>{
-                    navigate("/ShopCommunity");
-                }}/>
-                <Button
-                title = "자유게시판"
-                onClick ={() =>{
-                    navigate("/FreeCommunity");
-                }}/></Styleul>
+            <Styleul>
+                <div>Today 빈티지 소식</div>
+            </Styleul>
             <BottomRectangle />
         </StyleTab>
     );
 }
 
-export default CommunityTab; 
+export default MainPgTab; 

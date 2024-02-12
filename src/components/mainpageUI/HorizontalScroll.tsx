@@ -3,29 +3,52 @@ import styled from "styled-components";
 import {
   ScrollMenu,
   VisibilityContext,
-  
 } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
-
-// ... (imports)
+import TestImg1 from "../../images/test.png";
+import TestImg2 from "../../images/test2.png";
+import TestImg3 from "../../images/test3.png";
+import DefaultImg from "../../images/image-file.png";
 
 interface Item {
   id: string;
+  imageUrl: string; // Add imageUrl to the Item interface
 }
 
-const getItems = (): Item[] =>
-  Array(20)
-    .fill(0)
-    .map((_, ind) => ({ id: `element-${ind}` }));
+const getItems = (): Item[] => {
+  const items: Item[] = [];
+  for (let i = 0; i < 6; i++) {
+    if (i === 0) {
+      items.push({ id: `element-${i}`, imageUrl: TestImg1 });
+    } else if (i === 1) {
+      items.push({ id: `element-${i}`, imageUrl: TestImg2 });
+    } else if (i === 2) {
+      items.push({ id: `element-${i}`, imageUrl: TestImg3 });
+    } else {
+      items.push({ id: `element-${i}`, imageUrl: DefaultImg });
+    }
+  }
+  return items;
+};
+
+const ScrollContainer = styled.div`
+  width: 57vh; /* Set the desired height */
+  overflow-x: auto; /* or scroll */
+`;
 
 interface CardProps {
   onClick: (id: string) => void;
   selected: boolean;
-  title: string;
   itemId: string;
+  imageUrl: string; // Add imageUrl to the CardProps interface
 }
 
-function Card({ onClick, selected, title, itemId }: CardProps) {
+const CardImage = styled.img`
+  width: 54px;
+  height: 54px;
+`;
+
+function Card({ onClick, selected, itemId, imageUrl }: CardProps) {
   const visibility = useContext(VisibilityContext);
 
   return (
@@ -37,7 +60,7 @@ function Card({ onClick, selected, title, itemId }: CardProps) {
       tabIndex={0}
     >
       <div className="card">
-        <div>{title}</div>
+        <CardImage src={imageUrl} alt={`Banner ${itemId}`} />
         <div>
           visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}
         </div>
@@ -45,7 +68,7 @@ function Card({ onClick, selected, title, itemId }: CardProps) {
       </div>
       <div
         style={{
-          height: "200px",
+          height: "20px",
         }}
       />
     </div>
@@ -67,19 +90,19 @@ function HorizontalScroll() {
   };
 
   return (
-    <ScrollMenu
-      
-    >
-      {items.map(({ id }) => (
+    <ScrollContainer>
+    <ScrollMenu>
+      {items.map(({ id, imageUrl }) => (
         <Card
           itemId={id}
-          title={id}
           key={id}
           onClick={handleClick(id)}
           selected={isItemSelected(id)}
+          imageUrl={imageUrl} // Pass imageUrl to the Card component
         />
       ))}
     </ScrollMenu>
+    </ScrollContainer>
   );
 }
 
