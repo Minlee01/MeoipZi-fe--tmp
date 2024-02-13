@@ -1,3 +1,4 @@
+
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const StyleTab = styled.div`
     position: fixed;
     width: 385px;
-    height: 42px;
+    height: 0px;
     flex-shrink: 0;
     background: white;
     z-index:50;
@@ -54,9 +55,7 @@ function MainPgTab(): JSX.Element {
     const navigate = useNavigate();
     return(
         <StyleTab id = "tab">
-            <Styleul>
-                <div>Today 빈티지 소식</div>
-            </Styleul>
+            
             <BottomRectangle />
         </StyleTab>
     );

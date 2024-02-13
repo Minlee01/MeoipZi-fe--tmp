@@ -7,7 +7,7 @@ import VerticalImageGrid from "../components/mainpageUI/VerticalImageGrid";
 interface MainPageProps {}
 
 const ContentContainer = styled.div`
-  margin-top: 300px; /* Push all content down by 200px */
+  margin-top: 400px; /* Push all content down by 200px */
 `;
 
 const StyledTimerScroll = styled(TimerScroll)`
@@ -16,19 +16,36 @@ const StyledTimerScroll = styled(TimerScroll)`
 `;
 
 const StyledHorizontalScroll = styled(HorizontalScroll)`
-  
   height: 90px;
+  margin: 0px;
 `;
 
+const StyledContainer = styled.div`
+  margin-top: 20px;
+`
+
+const LetterSyle = styled.div`
+font-weight: 650;
+font-size: 15px;
+font-style: Noto Sans Arabic;
+color: #5C5C5C
+`;
 const MainPage: React.FC = () => {
   return (
     <ContentContainer>
-      {/* Other content */}
-      <StyledTimerScroll />
-      <div>Partenrs</div>
-      <StyledHorizontalScroll/>
-      <div>style</div>
-      <VerticalImageGrid/>
+      <StyledContainer>
+        <LetterSyle>Today 빈티지 소식</LetterSyle>
+        <StyledTimerScroll />
+      </StyledContainer>
+      <StyledContainer>
+        <LetterSyle>Partenrs</LetterSyle>
+        <StyledHorizontalScroll/>
+      </StyledContainer>
+      <StyledContainer>
+        <LetterSyle>style</LetterSyle>
+        <VerticalImageGrid/>
+      </StyledContainer>
+      
       {/* Other content */}
       </ContentContainer>
   );
