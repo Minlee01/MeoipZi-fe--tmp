@@ -1,40 +1,21 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import {
   ScrollMenu,
   VisibilityContext,
 } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
-import TestImg1 from "../../images/test.png";
-import TestImg2 from "../../images/test2.png";
-import TestImg3 from "../../images/test3.png";
-import DefaultImg from "../../images/image-file.png";
-
-interface Item {
-  id: string;
-  imageUrl: string; // Add imageUrl to the Item interface
-}
-
-const getItems = (): Item[] => {
-  const items: Item[] = [];
-  for (let i = 0; i < 6; i++) {
-    if (i === 0) {
-      items.push({ id: `element-${i}`, imageUrl: TestImg1 });
-    } else if (i === 1) {
-      items.push({ id: `element-${i}`, imageUrl: TestImg2 });
-    } else if (i === 2) {
-      items.push({ id: `element-${i}`, imageUrl: TestImg3 });
-    } else {
-      items.push({ id: `element-${i}`, imageUrl: DefaultImg });
-    }
-  }
-  return items;
-};
+import items from "../../data/partner_Brand.json";
 
 const ScrollContainer = styled.div`
   width: 57vh; /* Set the desired height */
   overflow-x: auto; /* or scroll */
 `;
+
+interface Item {
+  id: string;
+  imageUrl: string; // Add imageUrl to the Item interface
+}
 
 interface CardProps {
   onClick: (id: string) => void;
@@ -76,8 +57,11 @@ function Card({ onClick, selected, itemId, imageUrl }: CardProps) {
 }
 
 function HorizontalScroll() {
-  const [items, setItems] = useState<Item[]>(getItems);
   const [selected, setSelected] = useState<string[]>([]);
+
+  useEffect(() => {
+    // You can use useEffect for additional operations if needed
+  }, []); // Empty dependency array means it runs only once when component mounts
 
   const isItemSelected = (id: string): boolean => selected.includes(id);
 
@@ -91,17 +75,17 @@ function HorizontalScroll() {
 
   return (
     <ScrollContainer>
-    <ScrollMenu>
-      {items.map(({ id, imageUrl }) => (
-        <Card
-          itemId={id}
-          key={id}
-          onClick={handleClick(id)}
-          selected={isItemSelected(id)}
-          imageUrl={imageUrl} // Pass imageUrl to the Card component
-        />
-      ))}
-    </ScrollMenu>
+      <ScrollMenu>
+        {items.map(({ id, imageUrl }: Item) => (
+          <Card
+            itemId={id}
+            key={id}
+            onClick={handleClick(id)}
+            selected={isItemSelected(id)}
+            imageUrl={imageUrl}
+          />
+        ))}
+      </ScrollMenu>
     </ScrollContainer>
   );
 }
