@@ -91,17 +91,20 @@ function HorizontalScroll() {
 
 export default HorizontalScroll;
 */
+
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import {
   ScrollMenu,
   VisibilityContext,
 } from "react-horizontal-scrolling-menu";
+import { useNavigate } from "react-router-dom";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import TestImg1 from "../../images/test.png";
 import TestImg2 from "../../images/test2.png";
 import TestImg3 from "../../images/test3.png";
 import DefaultImg from "../../images/image-file.png";
+import Partners from "../../images/PartnersList.png";
 
 interface Item {
   id: string;
@@ -110,14 +113,16 @@ interface Item {
 
 const getItems = (): Item[] => {
   const items: Item[] = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 7; i++) {
     if (i === 0) {
-      items.push({ id: `element-${i}`, imageUrl: TestImg1 });
+      items.push({ id: `element-${i}`, imageUrl: Partners });
     } else if (i === 1) {
-      items.push({ id: `element-${i}`, imageUrl: TestImg2 });
+      items.push({ id: `element-${i}`, imageUrl: TestImg1 });
     } else if (i === 2) {
+      items.push({ id: `element-${i}`, imageUrl: TestImg2 });
+    } else if (i === 3) {
       items.push({ id: `element-${i}`, imageUrl: TestImg3 });
-    } else {
+    }else {
       items.push({ id: `element-${i}`, imageUrl: DefaultImg });
     }
   }
@@ -139,25 +144,24 @@ interface CardProps {
 const CardImage = styled.img`
   width: 54px;
   height: 54px;
+  margin-top: 8px;
 `;
 
 function Card({ onClick, selected, itemId, imageUrl }: CardProps) {
   const visibility = useContext(VisibilityContext);
 
   return (
+    
     <div
       onClick={() => onClick(itemId)}
       style={{
-        width: "160px",
+        width: "70px",
       }}
       tabIndex={0}
     >
       <div className="card">
         <CardImage src={imageUrl} alt={`Banner ${itemId}`} />
-        <div>
-          visible: {JSON.stringify(!!visibility.isItemVisible(itemId))}
-        </div>
-        <div>selected: {JSON.stringify(!!selected)}</div>
+        
       </div>
       <div
         style={{
@@ -183,6 +187,7 @@ function HorizontalScroll() {
   };
 
   return (
+    
     <ScrollContainer>
     <ScrollMenu>
       {items.map(({ id, imageUrl }) => (

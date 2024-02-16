@@ -16,6 +16,7 @@ const StyledTimerScroll = styled(TimerScroll)`
 `;
 
 const StyledHorizontalScroll = styled(HorizontalScroll)`
+  margin-top: 10px;
   height: 90px;
   margin: 0px;
 `;
@@ -29,6 +30,7 @@ font-weight: 650;
 font-size: 15px;
 font-style: Noto Sans Arabic;
 color: #5C5C5C
+
 `;
 const MainPage: React.FC = () => {
   return (

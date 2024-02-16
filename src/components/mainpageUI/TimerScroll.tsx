@@ -1,48 +1,77 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import TestImg1 from "../../images/test.png";
-import TestImg2 from "../../images/test2.png";
-import TestImg3 from "../../images/test3.png";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import imagesData from '../../data/Banner_data.json';
 
-const images = [TestImg1, TestImg2, TestImg3];
-
-const TimerScrollContainer = styled.div`
-  width: 100%; /* Set the container width to 100% */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  white-space: nowrap; /* Ensure all images are in a single line */
+const SliderContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  overflow: hidden;
 `;
 
-const Image = styled.img`
-  margin: 2px;
-  width: 55vh;
-  height: 190px;
+const SlideWrapper = styled.div`
+  display: flex;
+  transition: transform 0.5s ease;
 `;
 
-function TimerScroll() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+const Slide = styled.img`
+  width: 33.333%; /* Display three images at a time */
+  flex-shrink: 0;
+`;
 
+const SlideButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+`;
+
+const PrevButton = styled(SlideButton)`
+  left: 0;
+`;
+
+const NextButton = styled(SlideButton)`
+  right: 0;
+`;
+
+const Slider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = imagesData.map(image => image.url);
+
+  // Function to go to the previous slide
+  const prevSlide = () => {
+    setCurrentSlide(prev => (prev === 0 ? images.length - 3 : prev - 3));
+  };
+
+  // Function to go to the next slide
+  const nextSlide = () => {
+    setCurrentSlide(prev => (prev === images.length - 3 ? 0 : prev + 3));
+  };
+
+  // Function to handle automatic sliding every 30 seconds
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 30000);
-
-    return () => clearInterval(intervalId);
-  }, []);
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 30000); // 30 seconds
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   return (
-    <TimerScrollContainer>
-      {images.map((image, index) => (
-        <Image
-          key={index}
-          src={image}
-          alt={`Image ${index}`}
-          style={{
-            display: index === currentImageIndex ? "inline-block" : "none",
-          }}
-        />
-      ))}
-    </TimerScrollContainer>
+    <SliderContainer>
+      <SlideWrapper style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}>
+        {images.map((image, index) => (
+          <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
+        ))}
+      </SlideWrapper>
+      <PrevButton onClick={prevSlide}>Prev</PrevButton>
+      <NextButton onClick={nextSlide}>Next</NextButton>
+    </SliderContainer>
   );
-}
+};
 
-export default TimerScroll;
+export default Slider;

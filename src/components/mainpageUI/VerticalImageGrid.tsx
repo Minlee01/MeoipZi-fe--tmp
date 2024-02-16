@@ -16,8 +16,9 @@ const images = [TestImg1, TestImg2, TestImg3, DefaultImg, DefaultImg,
 const ImageGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 100px); /* 3 columns with 100px width */
-  gap: 10px; /* Gap between grid items */
+  gap: 15px; /* Gap between grid items */
   margin: 8px; /* Margin on top and bottom */
+  
 `;
 
 const Image = styled.img`
