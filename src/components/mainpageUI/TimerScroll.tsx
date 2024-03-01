@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import imagesData from '../../data/Banner_data.json';
+import {bannerData} from '../../data/Banner_data';
 
 const SliderContainer = styled.div`
   position: relative;
@@ -41,7 +41,7 @@ const NextButton = styled(SlideButton)`
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = imagesData.map(image => image.url);
+  const images = bannerData.map(image => image.url);
 
   // Function to go to the previous slide
   const prevSlide = () => {
