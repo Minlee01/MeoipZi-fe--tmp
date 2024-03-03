@@ -1,6 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import {bannerData} from '../../data/Banner_data';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom"; // Import useHistory from React Router
+import { bannerData } from "../../data/Banner_data";
+
+interface Image {
+  id: number;
+  url: string;
+}
 
 const SliderContainer = styled.div`
   position: relative;
@@ -18,6 +24,7 @@ const SlideWrapper = styled.div`
 const Slide = styled.img`
   width: 33.333%; /* Display three images at a time */
   flex-shrink: 0;
+  cursor: pointer; /* Add cursor pointer */
 `;
 
 const SlideButton = styled.button`
@@ -39,18 +46,19 @@ const NextButton = styled(SlideButton)`
   right: 0;
 `;
 
-const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const images = bannerData.map(image => image.url);
+const Slider: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const images: string[] = bannerData.map((image: Image) => image.url);
+  const navigate = useNavigate(); // Get history object from React Router
 
   // Function to go to the previous slide
   const prevSlide = () => {
-    setCurrentSlide(prev => (prev === 0 ? images.length - 3 : prev - 3));
+    setCurrentSlide((prev) => (prev === 0 ? images.length - 3 : prev - 3));
   };
 
   // Function to go to the next slide
   const nextSlide = () => {
-    setCurrentSlide(prev => (prev === images.length - 3 ? 0 : prev + 3));
+    setCurrentSlide((prev) => (prev === images.length - 3 ? 0 : prev + 3));
   };
 
   // Function to handle automatic sliding every 30 seconds
@@ -61,11 +69,22 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
+  // Function to handle click on image for navigation
+  const handleImageClick = (index: number) => {
+    // Navigate to the page with "/banner-n" where n is the index of the clicked image
+    navigate(`/banner-${index + 1}`);
+  };
+
   return (
     <SliderContainer>
       <SlideWrapper style={{ transform: `translateX(-${currentSlide * 33.333}%)` }}>
-        {images.map((image, index) => (
-          <Slide key={index} src={image} alt={`Slide ${index + 1}`} />
+        {images.map((image: string, index: number) => (
+          <Slide
+            key={index}
+            src={image}
+            alt={`Slide ${index + 1}`}
+            onClick={() => handleImageClick(index)} // Attach onClick handler to each image
+          />
         ))}
       </SlideWrapper>
       <PrevButton onClick={prevSlide}>Prev</PrevButton>

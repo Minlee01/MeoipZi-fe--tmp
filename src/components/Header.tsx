@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import mainLogo from "../images/mainLogo.png";
 
 const StyleHeader = styled.div`
     position: fixed;
     top:0;
-    width: 375px;
+    width: 375px; /*40%??*/
     height: 86px;
     flex-shrink: 0;
     z-index: 100;
@@ -26,10 +26,14 @@ const LogoImage = styled.img`
     max-height: 100%;
 `;
 
-function Header(): JSX.Element {
+interface HeaderProps {
+    children: ReactNode;
+  }
+
+function Header(props: HeaderProps): JSX.Element {
     return(
         <StyleHeader id = "header">
-            <img src={mainLogo} alt="MeoipZi" />
+            <main>{props.children}</main>
         </StyleHeader>
     );
 }

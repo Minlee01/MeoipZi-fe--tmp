@@ -15,13 +15,17 @@ import ShopCom from './pages/ShopCom';
 import FreeCom from './pages/FreeCom';
 
 import MainPage from './pages/MainPage';
+import TimerScroll from './components/mainpageUI/TimerScroll';
+import VintageNews from './pages/VintageNews';
+import Loading from './pages/Loading';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <BrowserRouter>
     <MainLayout>
+    <Loading />
       
-      <MainPage/>
       {/*
       <Routes>
       <Route index element = {<BrandCom />} />
@@ -31,6 +35,13 @@ function App() {
         <Route path = "/FreeCommunity" element={<FreeCom />} />
       </Routes>
   */}
+      <Routes>
+        <Route index element = {<Footer />} />
+        <Route path = "/MainPage" element = {<MainPage/>} />
+        <Route path = "/BrandCommunity" element = {<BrandCom />} />
+        <Route path="/" element={<TimerScroll />} />
+        <Route path="/banner/:id" element={<VintageNews />} />
+      </Routes>
     </MainLayout>
     
     </BrowserRouter>
