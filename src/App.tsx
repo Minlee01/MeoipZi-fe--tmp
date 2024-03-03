@@ -19,12 +19,13 @@ import TimerScroll from './components/mainpageUI/TimerScroll';
 import VintageNews from './pages/VintageNews';
 import Loading from './pages/Loading';
 import Footer from './components/Footer';
+import ComLayout from './components/mainpageUI/CommunityLayout';
 
 function App() {
   return (
     <BrowserRouter>
-    <MainLayout>
-    <Loading />
+    
+      
       
       {/*
       <Routes>
@@ -36,13 +37,15 @@ function App() {
       </Routes>
   */}
       <Routes>
-        <Route index element = {<Footer />} />
-        <Route path = "/MainPage" element = {<MainPage/>} />
-        <Route path = "/BrandCommunity" element = {<BrandCom />} />
-        <Route path="/" element={<TimerScroll />} />
-        <Route path="/banner/:id" element={<VintageNews />} />
+      <Route index element={<MainPage />} />
+          <Route path="/MainPage" element={<MainPage />} />
+          <Route path="/post-write" element={<WritePost />} />
+          <Route path="/" element={<TimerScroll />} />
+          <Route path="/banner/:id" element={<VintageNews />} />
+          <Route path="/BrandCommunity" element ={<ComLayout><BrandCom/></ComLayout>} />
+          <Route path="/ShopCommunity" element ={<ComLayout><ShopCom/></ComLayout>} />
+          <Route path="/FreeCommunity" element ={<ComLayout><FreeCom/></ComLayout>} />
       </Routes>
-    </MainLayout>
     
     </BrowserRouter>
     

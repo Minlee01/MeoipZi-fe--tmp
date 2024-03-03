@@ -4,6 +4,7 @@ import styled from "styled-components";
 import PostList from "../components/list/PostList";
 import Button from "../components/ui/Button";
 import data_F from '../data_Free.json';
+import CommunityTab from "../components/CommunityTab";
 
 interface MainPageProps {}
 
@@ -33,6 +34,7 @@ const FreeCom: FC<MainPageProps> = () => {
   const navigate = useNavigate();
 
   return (
+    <>
     <FWrapper>
       <Container>
         <PostList
@@ -43,6 +45,8 @@ const FreeCom: FC<MainPageProps> = () => {
         />
       </Container>
     </FWrapper>
+    </>
+    
   );
 };
 

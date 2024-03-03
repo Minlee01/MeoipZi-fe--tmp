@@ -40,7 +40,11 @@ function Header(): JSX.Element {
     const navigate = useNavigate();
     return(
         <StyleHeader id = "header">
-            <LogoImage src={mainLogo} alt="MeoipZi" />
+            <LogoImage src={mainLogo} alt="MeoipZi" 
+                onClick = {() => {
+                    navigate("/MainPage");
+                }}
+            />
             <AlarmImage src={alarmLogo} alt="bell-image" 
                 onClick = {() => {
                     navigate("/UserPage");

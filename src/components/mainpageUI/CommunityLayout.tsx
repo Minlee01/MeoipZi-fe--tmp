@@ -5,8 +5,11 @@ import Header from "../Header";
 
 import MainHeader from "../../components/mainpageUI/MainHeader";
 import MainPgTab from "../mainpageUI/MainPgTab";
-import HorizontalScroll from "./HorizontalScroll";
-import TimerScroll from "./TimerScroll";
+import CommunityTab from "../CommunityTab";
+
+//add button to writePost
+import WriteButton from "../../images/WritePostB.png";
+
 //import CommunityTab from "./CommunityTab";
 
 interface LayoutProps {
@@ -38,13 +41,19 @@ const ContentWrapper = styled.div`
   overflow-y: scroll;
 `;
 
-function MainLayout(props: LayoutProps): JSX.Element {
+const StyledIm = styled(WriteButton)`
+
+`;
+
+function ComLayout(props: LayoutProps): JSX.Element {
   return (
     <div>
       <MainHeader />
       <MainPgTab />
+      <CommunityTab/>
       <StyleWrap id="wrap">
         <ContentWrapper>
+            <StyledIm/>
           <main>{props.children}</main>
         </ContentWrapper>
       </StyleWrap>
@@ -53,4 +62,4 @@ function MainLayout(props: LayoutProps): JSX.Element {
   );
 }
 
-export default MainLayout;
+export default ComLayout;

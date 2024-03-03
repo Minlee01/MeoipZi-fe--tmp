@@ -4,6 +4,7 @@ import styled from "styled-components";
 import PostList from "../components/list/PostList";
 import Button from "../components/ui/Button";
 import data_Brand from '../data_Brand.json';
+import ComLayout from "../components/mainpageUI/CommunityLayout";
 
 interface MainPageProps {}
 
@@ -60,7 +61,8 @@ const BrandCom: FC<MainPageProps> = () => {
           }}
         />
         </ButtonContainer>
-      </>
+    </>
+    
   );
 };
 

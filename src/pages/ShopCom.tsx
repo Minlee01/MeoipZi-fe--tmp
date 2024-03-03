@@ -4,6 +4,7 @@ import styled from "styled-components";
 import PostList from "../components/list/PostList";
 import Button from "../components/ui/Button";
 import data_S from '../data_Shop.json';
+import CommunityTab from "../components/CommunityTab";
 
 interface MainPageProps {}
 
@@ -35,6 +36,7 @@ const ShopCom: FC<MainPageProps> = () => {
   const navigate = useNavigate();
 
   return (
+    <>
     <SWrapper>
       <Container>
         <PostList
@@ -45,6 +47,8 @@ const ShopCom: FC<MainPageProps> = () => {
         />
       </Container>
     </SWrapper>
+    </>
+    
   );
 };
 

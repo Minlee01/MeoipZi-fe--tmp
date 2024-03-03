@@ -3,7 +3,7 @@ import styled from "styled-components";
 import HorizontalScroll from "../components/mainpageUI/HorizontalScroll";
 import TimerScroll from "../components/mainpageUI/TimerScroll";
 import VerticalImageGrid from "../components/mainpageUI/VerticalImageGrid";
-
+import MainLayout from "../components/mainpageUI/MainLayout";
 interface MainPageProps {}
 
 const ContentContainer = styled.div`
@@ -34,7 +34,8 @@ color: #5C5C5C
 `;
 const MainPage: React.FC = () => {
   return (
-    <ContentContainer>
+    <MainLayout>
+      <ContentContainer>
       <StyledContainer>
         <LetterSyle>Today 빈티지 소식</LetterSyle>
         <StyledTimerScroll />
@@ -50,6 +51,11 @@ const MainPage: React.FC = () => {
       
       {/* Other content */}
       </ContentContainer>
+    </MainLayout>
+
+    
+    
+    
   );
 };
 
