@@ -20,23 +20,25 @@ import VintageNews from './pages/VintageNews';
 import Loading from './pages/Loading';
 import Footer from './components/Footer';
 import ComLayout from './components/CommunityLayout';
+import MyPage from './pages/MyPage';
+import LikeImage from './components/MyPageUI/LikeImage';
+
 
 function App() {
   const currentPath = "/BrandCommunity";
   return (
+    <MyPage>
+      <LikeImage/>
+    </MyPage>
+
+    /*
     <BrowserRouter>
     
       
       
-      {/*
-      <Routes>
-      <Route index element = {<BrandCom />} />
-        <Route path = "/post-write" element={<WritePost />} />
-        <Route path = "/BrandCommunity" element={<BrandCom />} />
-        <Route path = "/ShopCommunity" element={<ShopCom />} />
-        <Route path = "/FreeCommunity" element={<FreeCom />} />
-      </Routes>
-  */}
+      
+      
+  
       <Routes>
       <Route index element={<MainPage />} />
           <Route path="/MainPage" element={<MainPage />} />
@@ -47,9 +49,10 @@ function App() {
           <Route path="/FreeCommunity" element={<ComLayout currentPath="/FreeCommunity"><FreeCom/></ComLayout>} />
           <Route path={`${currentPath}/WritePost`} element={<WritePost />} />
       </Routes>
-    
+
     </BrowserRouter>
-    
+  */
+
   );
 }
 
