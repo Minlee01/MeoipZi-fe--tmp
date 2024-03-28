@@ -22,6 +22,7 @@ import Footer from './components/Footer';
 import ComLayout from './components/mainpageUI/CommunityLayout';
 
 function App() {
+  const currentPath = "/BrandCommunity";
   return (
     <BrowserRouter>
     
@@ -39,12 +40,12 @@ function App() {
       <Routes>
       <Route index element={<MainPage />} />
           <Route path="/MainPage" element={<MainPage />} />
-          <Route path="/post-write" element={<WritePost />} />
           <Route path="/" element={<TimerScroll />} />
           <Route path="/banner/:id" element={<VintageNews />} />
-          <Route path="/BrandCommunity" element ={<ComLayout><BrandCom/></ComLayout>} />
-          <Route path="/ShopCommunity" element ={<ComLayout><ShopCom/></ComLayout>} />
-          <Route path="/FreeCommunity" element ={<ComLayout><FreeCom/></ComLayout>} />
+          <Route path="/BrandCommunity" element={<ComLayout currentPath="/BrandCommunity"><BrandCom/></ComLayout>} />
+          <Route path="/ShopCommunity" element={<ComLayout currentPath="/ShopCommunity"><ShopCom/></ComLayout>} />
+          <Route path="/FreeCommunity" element={<ComLayout currentPath="/FreeCommunity"><FreeCom/></ComLayout>} />
+          <Route path={`${currentPath}/WritePost`} element={<WritePost />} />
       </Routes>
     
     </BrowserRouter>
