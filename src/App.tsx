@@ -19,7 +19,7 @@ import TimerScroll from './components/mainpageUI/TimerScroll';
 import VintageNews from './pages/VintageNews';
 import Loading from './pages/Loading';
 import Footer from './components/Footer';
-import ComLayout from './components/mainpageUI/CommunityLayout';
+import ComLayout from './components/CommunityLayout';
 
 function App() {
   const currentPath = "/BrandCommunity";

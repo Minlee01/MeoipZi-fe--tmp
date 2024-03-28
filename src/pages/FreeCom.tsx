@@ -10,24 +10,26 @@ interface MainPageProps {}
 
 const FWrapper = styled.div`
   padding: 16px;
-  width: 40vh;
+  width: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;  // Fixed typo in 'align-items'
   justify-content: center;
   
-  margin-bottom: 8vh;
+  margin-bottom: 3vh;
 `;
 
 const Container = styled.div`
   width: 100%;
   max-width: 355px;
+  height: 100%;
 
   & > * {
     :not(:last-child) {
       margin-bottom: 16px;
     }
   }
+  flex: 1;
 `;
 
 const FreeCom: FC<MainPageProps> = () => {

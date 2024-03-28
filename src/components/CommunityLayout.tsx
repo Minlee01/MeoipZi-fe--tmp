@@ -1,16 +1,16 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import Footer from "../Footer";
-import Header from "../Header";
+import Footer from "./Footer";
+import Header from "./Header";
 import { Link, useLocation } from "react-router-dom";
 
-import MainHeader from "../../components/mainpageUI/MainHeader";
-import MainPgTab from "../mainpageUI/MainPgTab";
-import CommunityTab from "../CommunityTab";
-import WritePost from "../../pages/WritePost";
+import MainHeader from "./mainpageUI/MainHeader";
+import MainPgTab from "./mainpageUI/MainPgTab";
+import CommunityTab from "./CommunityTab";
+import WritePost from "../pages/WritePost";
 
 //add button to writePost
-import writeButton from "../../images/WritePostB.png";
+import writeButton from "../images/WritePostB.png";
 
 //import CommunityTab from "./CommunityTab";
 
@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
 `;
 
 const WriteButton = styled.img`
-  width: 60px;
+  width: 80px;
   position: fixed;
   left: 58%;
   top: 70%;
@@ -63,16 +63,17 @@ function ComLayout(props: LayoutProps): JSX.Element {
       <CommunityTab/>
       <StyleWrap id="wrap">
         <ContentWrapper>
-          {location.pathname === "/WritePost" ? (
+          
+          <main>{props.children}</main>
+        </ContentWrapper>
+      </StyleWrap>
+      {location.pathname === "/WritePost" ? (
             <WritePost />
           ) : (
             <Link to={`${currentPath}/WritePost`}>
               <WriteButton src={writeButton} alt="Write Post" />
             </Link>
           )}
-          <main>{props.children}</main>
-        </ContentWrapper>
-      </StyleWrap>
       <Footer />
     </div>
   );
